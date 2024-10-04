@@ -3,8 +3,9 @@ knitr:
   opts_chunk: 
     comment: ''
     error: true
+lightbox: true
 ---
-# Loop Functions {#sec-loopfns}
+# The Apply Family {#sec-loopfns}
 
 Loop functions are some of the most widely used R functions. They replace 
 longer expressions created with a `for` loop, for example.  
@@ -20,12 +21,12 @@ They can result in more compact and readable code.
 | `mapply()` | Multivariate `sapply()`: Apply a function using the 1st elements of the inputs vectors, then using the 2nd, 3rd, etc.
 
 ```{r}
-#| label: FigRapplyfam
+#| label: fig-apply
 #| echo: false
 #| out-width: 100%
 #| fig-align: center
 #| fig-cap: "`*apply()` function family summary (Best to read through this chapter first and then refer back to this figure)"
-knitr::include_graphics("./R_applyfam.png")
+knitr::include_graphics("assets/R_applyfam.png")
 ```
 
 ## `apply()` {#apply}
@@ -170,8 +171,8 @@ dat_median
 
 
 ::: callout-note
-Unlike `lapply()`, the output of `sapply()` is **variable**: 
-it is the simplest R  object that can hold the data type(s) resulting from the 
+Unlike `lapply()`, the output of `sapply()` is **variable**, when the argument `simplify` is set to `TRUE`, which is the default:  
+It is the simplest R  object that can hold the data type/s resulting from the 
 operations, i.e. a vector, matrix, data frame, or list.
 :::
 
@@ -198,12 +199,14 @@ logical index of numeric columns:
 
 ```{r}
 numidl <- sapply(dat2, is.numeric)
+numidl
 ```
 
 integer index of numeric columns:
 
 ```{r}
 numidi <- which(sapply(dat2, is.numeric))
+numidi
 ```
 
 ## `vapply()` {#vapply}
@@ -221,7 +224,7 @@ You add the argument `FUN.VALUE` which must be of the correct **type** and
 **length** of the expected result ***of each iteration***.
 
 ```{r}
-vapply(dat, median, FUN.VALUE = .1)
+vapply(dat, median, FUN.VALUE = 0.0)
 ```
 
 Here, each iteration returns the median of each column, i.e. a numeric vector 
@@ -233,13 +236,13 @@ For example, if we instead returned the range of each column, `FUN.VALUE`
 should be a numeric vector of length 2:
 
 ```{r}
-vapply(dat, range, FUN.VALUE = rep(.1, 2))
+vapply(dat, range, FUN.VALUE = rep(0.0, 2))
 ```
 
 If `FUN.VALUE` does not match the returned value, we get an informative error:
 
 ```{r}
-vapply(dat, range, FUN.VALUE = .1)
+vapply(dat, range, FUN.VALUE = 0.0)
 ```
 
 ## `tapply()` {#tapply}
@@ -251,6 +254,7 @@ iris dataset:
 
 ```{r}
 dat$Group <- factor(sample(c("A", "B", "C"), size = 50, replace = TRUE))
+head(dat)
 ```
 
 ```{r}

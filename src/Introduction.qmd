@@ -1,11 +1,11 @@
 ---
-title: Introduction
+engine: knitr
+knitr:
+  opts_chunk:
+    comment: ""
+lightbox: true
 ---
-
-```{r, comment="", results="asis", echo=FALSE}
-old.hooks <- fansi::set_knit_hooks(knitr::knit_hooks)
-options(crayon.enabled = TRUE)
-```
+# Introduction {#sec-intro}
 
 The [S Programming Language](https://en.wikipedia.org/wiki/S_(programming_language)) is a statistical
 programming language developed at [Bell Labs](https://en.wikipedia.org/wiki/Bell_Labs) 
@@ -35,6 +35,8 @@ biomedical applications.
 See also: [What is R?](https://www.r-project.org/about.html) on the 
 [R Project website](https://www.r-project.org/).
 <br>
+
+## Keeping up to date
 
 This book was compiled using `r R.Version()$version.string`.  
 Make sure you have the latest version by visiting the 

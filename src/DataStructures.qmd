@@ -2,6 +2,7 @@
 knitr:
   opts_chunk:
     comment: ""
+lightbox: true
 ---
 # Data Structures {#sec-datastructures}
 
@@ -34,12 +35,14 @@ two-dimensional data structure where rows typically correspond to cases
 (e.g. individuals) and columns represent variables. As such, data.frames
 are the most common data structure for statistical analysis.
 <br><br>
+
 ```{r}
+#| label: fig-datastructures
 #| echo: false
 #| out-width: 100%
 #| fig-align: center
 #| fig-cap: R Data Structure summary - Best to read through this chapter first and then refer back to this figure
-knitr::include_graphics("./R_datastructures.png")
+knitr::include_graphics("assets/R_datastructures.png")
 ```
 
 ::: callout-tip
@@ -345,7 +348,7 @@ get a list, since it is the only structure that can support all of them together
 class(x)
 ```
 
-##  Data frames {#sec-dataframestruc}
+##  Data frames {#dataframestruc}
 
 ::: callout-note
 A data frames is a **special type of list** where each element has the same 

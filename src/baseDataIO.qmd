@@ -9,9 +9,9 @@ knitr:
 ```{r}
 #| echo: false
 #| out.width: 80%
-#| fig-cap: "Common Data Input/Output commands in R"
+#| fig-cap: "Common Data Input/Output commands in R. See next section for reading and writing XLSX files."
 #| fig-align: "center"
-knitr::include_graphics("./R_dataio.png")
+knitr::include_graphics("assets/R_dataio.png")
 ```
 
 Tabular data typically consists of rows and columns, where the rows correspond
@@ -67,9 +67,14 @@ that column.
 men <-  read.csv("../Data/pone.0204161.s001.csv")
 ```
 
-::: callout-note
-When working in Windows, paths should use either single forward slashes (`/`) 
-or double backslashes (`\\`).
+::: callout-important
+***Windows users***: When working in Windows, system paths should use either single forward slashes (`/`) 
+or double backslashes (`\\`). The customary Windows path separator, a single backslash (`\`),
+will not work in R.
+
+For example, use  
+`C:/Users/username/Data/dat.rds` or `C:\\Users\\username\\Data\\dat.rds`,  
+**NOT** `C:\Users\username\Data\dat.rds`.
 :::
 
 ### Read CSV from the web
@@ -124,43 +129,6 @@ write.csv(iris, "../Data/iris.csv", row.names = FALSE)
 Note that in this case we did not need to save row names (which are just 
 integers 1 to  150 and would add a useless extra column in the output)
 
-## Excel .XLSX files
-
-Two popular packages to read Excel files are 
-[openxlsx](https://cran.r-project.org/package=openxlsx) and 
-[readxl](https://cran.r-project.org/package=readxl).
-
-## Read .xslx 
-
-### `openxlsx::read.xlsx()`
-
-`NA` strings are defined with argument `na.strings`.
-
-```{r}
-#| eval: false
-bcw <- openxlsx::read.xlsx("../Data/bcw.xlsx", na.strings = ".")
-```
-
-### `readxl::read_xlsx()`
-
-`NA` strings are defined with argument `na`.
-
-```{r}
-#| eval: false
-bcw <- readxl::read_xlsx("../Data/bcw.xlsx", na = ".")
-```
-
-## Write .xlsx 
-
-### `openxlsx::write.xlsx()`
-
-```{r}
-#| eval: false
-openxlsx::write.xlsx(bcw, "../Data/bcw.xlsx")
-```
-
-Note: The `readxl` package does not include a function to write .XLSX files.
-
 ## RDS
 
 ### Read single R object from an RDS file
@@ -180,7 +148,7 @@ To read an RDS file directly from a web server, you surround the URL with
 ```{r}
 #| eval: false
 dat <- readRDS(
-         url("https://class.lambdamd.org/pdsr/data/synth2208.rds")
+         url("https://rtemis.org/pdsr/data/synth2208.rds")
        )
 ```
 

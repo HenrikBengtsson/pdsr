@@ -35,12 +35,15 @@ $green:   #00bc8c !default;
 $teal:    #20c997 !default;
 $cyan:    #3498db !default;
 
-$rthighlight:#16A0AC;
-$rthighlite: #60D0DA;
-$rtdark:       #093f44;
-$rtlight:      #8ff6ff;
-// Body
+// $rthighlight: #1295D8;
+$rthighlight: #027fd4;
+$rtdark:       #00778B;
+// $rtlight:      #8ff6ff;
+$rtlight:     #00A3AD;
+$code-bg: #f3f3f3;
+$pre-bg: #f3f3f3;
 
+// Body
 $body-bg:                   $white !default;
 $body-color:                $black !default;
 
@@ -69,8 +72,8 @@ $link-color:                $rthighlight !default;
 // Fonts
 
 // stylelint-disable-next-line value-keyword-case
-$font-family-sans-serif:      Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
-$font-family-monospace:       Fira Code, Menlo, Monaco, Consolas, "Courier New", monospace !default;
+// $font-family-sans-serif:      Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+// $font-family-monospace:       Fira Code, Menlo, Monaco, Consolas, "Courier New", monospace !default;
 
 $font-size-base:              0.9rem !default;
 $h1-font-size:                2.0rem !default;
@@ -185,26 +188,37 @@ $btn-close-hover-opacity:    1 !default;
 
 // Code
 
+/* Input source code left border */
+pre.sourceCode {
+  background-color: $code-bg !important;
+  border-left-color: $rthighlight !important;
+  border-left-style: solid !important;
+  border-left-width: medium;
+}
+
 $pre-color:                         inherit !default;
 
-// inline code
+// Cell output
+.cell-output.cell-output-stdout {
+  background-color: $code-bg;
+  border-radius: .25rem;
+}
 
+// inline code
+// accessed as var(--bs-code-color)
 $code-color:                $rtdark  !default;
-// these 2 no effect
-$code-bg:                 #d5d5d5;
-$pre-bg:                  #d5d5d5;
 pre code {
-  background-color: #d5d5d5;
+  background-color: $code-bg;
 }
 
 /*-- scss:rules --*/
 
 // Variables
 
-$web-font-path: "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" !default;
-@if $web-font-path {
-  @import url($web-font-path);
-}
+// $web-font-path: "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" !default;
+// @if $web-font-path {
+//   @import url($web-font-path);
+// }
 
 // Typography
 
@@ -296,9 +310,3 @@ $container-large-desktop: (
   71.25rem + $grid-gutter-width) !default;
 //** For `$screen-lg-min` and up.
 $container-lg: $container-large-desktop  !default;
-
-// Cell output
-.cell-output.cell-output-stdout {
-  background-color: #e6e6e6;
-  border-radius: .25rem;
-}

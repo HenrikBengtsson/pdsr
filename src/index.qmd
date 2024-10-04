@@ -1,3 +1,8 @@
+---
+format:
+  html:
+    css: [index.css]
+---
 # Welcome {.unnumbered}
 
 <img src="./PDSR_cover_2022_4x3.jpg" alt="ProgDatSciR" style="width:100%;filter: drop-shadow(0 0 .3rem #333);"/>
@@ -14,4 +19,4 @@ It is the online reference for UCSF Biostat
 [E.D. Gennatas MBBS AICSM PhD](https://egenn.lambdamd.org){target="_blank"}  
 [Laboratory of Computational Medicine](https://www.lambdamd.org/){target="_blank"},  
 [University of California, San Francisco](https://www.ucsf.edu/){target="_blank"},  
-San Francisco, CA, September 2023
+SF, CA, September 2024

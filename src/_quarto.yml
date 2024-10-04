@@ -1,21 +1,28 @@
 project:
   type: book
-  output-dir: ../_book
+  output-dir: ../../rtemis.org/docs/pdsr
 
 book:
   title: "PDSR"
   author: "E.D. Gennatas"
-  date: "09/27/2023"
-  google-analytics: "UA-163213745-1"
+  date: "09/16/2024"
+  language: en
+  google-analytics: "G-E1FN041JRR"
   repo-url: https://github.com/egenn/pdsr
   repo-subdir: src
-  repo-actions: [edit, issue]
+  repo-actions: [issue]
   repo-branch: master
   reader-mode: true
+  sidebar:
+    logo: assets/meta9_pdsr.png
+    title: " "
+    style: "floating"
   chapters:
     - index.qmd
     - Preface.qmd
     - Introduction.qmd
+    - Installation.qmd
+    - GettingStarted.qmd
     - IDEs.qmd
     - Packages.qmd
     - BasicOps.qmd
@@ -26,6 +33,7 @@ book:
     - part: DataIO.qmd
       chapters:
         - baseDataIO.qmd
+        - xlsxIO.qmd
         - datatableDataIO.qmd
         - readrDataIO.qmd
         - vroomDataIO.qmd
@@ -33,8 +41,12 @@ book:
     - ControlFlow.qmd
     - Summarize.qmd
     - Aggregate.qmd
-    - Functions.qmd 
-    - LoopFunctions.qmd
+    - part: Functions.qmd 
+      chapters: 
+        - WritingFunctions.qmd
+        - Scoping.qmd
+        - Pipes.qmd
+    - Apply.qmd
     # - part: DataQueries.qmd
     #   chapters:
     #     - baseDataQueries.qmd
@@ -66,9 +78,6 @@ book:
         - dplyrJoin.qmd
         - tidyrReshape.qmd
         - lubridate.qmd
-    - part: DuckDB.qmd
-      chapters: 
-        - DuckDBBasics.qmd
     - part: Graphics.qmd
       chapters:
         - BaseGraphics.qmd
@@ -79,32 +88,53 @@ book:
     - GLM.qmd
     - Profiling.qmd 
     - Optimization.qmd
-    - part: IntroML.qmd
-      chapters: 
-        - Resampling.qmd
-        - Supervised.qmd 
-        - Unsupervised.qmd
     - Quarto.qmd
     - part: System.qmd
       chapters:
         - TerminalIntro.qmd
         - GitHubIntro.qmd 
+    - part: Advanced.qmd
+      chapters: 
+        - ds.qmd
+        - DuckDB.qmd
     - Resources.qmd 
     - DataPipeline.qmd
     - CrashCourse.qmd
     - References.qmd
-  page-footer: "&copy; 2023 E.D. Gennatas"
+  page-footer: "&copy; 2024 E.D. Gennatas"
 
 bibliography: references.bib
 
 format:
   html:
+    toc: true
+    toc-depth: 3
     theme:
       light: rtemis-light.scss
       dark: rtemis-dark.scss
-    css: bootstrap.lambdamd.css
-    highlight-style: atom-one
+    include-after-body: include/webex.html
+    css: rtemis.css
+    highlight-style: github
     code-link: true
+    comments: 
+      hypothesis:
+        openSidebar: false
+  # pdf: default
 
 execute:
   freeze: auto
+
+# cd src; quarto add egenn/quarto-webr
+# Set default options for every webpage that may or may not include webR.
+webr: 
+  show-startup-message: false     # Display status of webR initialization
+#  show-header-message: false     # Check to see if COOP&COEP headers are set for speed.
+#  packages: ['ggplot2', 'dplyr'] # Pre-install dependencies
+#  base-url: ''                   # Base URL used for specifying where R WebAssembly binaries should be located
+#  home-dir: '/home/rstudio'      # Customize where the working directory is
+#  channel-type: 'post-message'   # Specify communication channel
+#  service-worker-url: ''         # URL from where to load JavaScript worker scripts when loading webR with the ServiceWorker communication channel.
+
+# Attach webR to every page
+filters:
+  - webr

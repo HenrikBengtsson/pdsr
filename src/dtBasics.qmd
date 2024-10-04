@@ -4,7 +4,7 @@ knitr:
     comment: ''
     error: true
 ---
-# Efficient Data Analysis with **data.table** {#sec-datatable}
+# **data.table** basics {#sec-datatable}
 
 ```{r}
 #| label: fig-datatable
@@ -12,7 +12,7 @@ knitr:
 #| out-width: 50%
 #| fig-align: center
 #| fig-cap: data.table significantly enhances the base R data.frame
-knitr::include_graphics("R_data.table.png")
+knitr::include_graphics("assets/R_data.table.png")
 ```
 
 ## `data.table` extends the functionality of `data.frame`

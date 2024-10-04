@@ -1,13 +1,17 @@
-# freeze
-src/_freeze/
-
-# Dev folder
-/_dev/
+# Dev
 /dev/
-/R/dev/
 
 # macOS
 .DS_Store
+
+# VS Code
+*.code-workspace
+
+# Quarto
+.quarto/
+
+# freeze
+src/_freeze/
 
 # History files
 .Rhistory
@@ -47,8 +51,6 @@ inst/doc
 
 # Temporary files created by editors
 *~
-.vscode/
-*.code-workspace
 
 # bookdown
 /_book/
@@ -59,4 +61,5 @@ inst/doc
 *_cache/
 *_files/
 
-/.quarto/
+
+/.luarc.json

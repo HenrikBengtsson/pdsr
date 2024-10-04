@@ -1,0 +1,82 @@
+---
+knitr:
+  opts_chunk:
+    comment: ""
+    cache: true
+lightbox: true
+---
+# Getting Started {#sec-gettingstarted}
+
+## Function calls
+
+Working in R, like any programming language, involves calling functions.
+For this to work as expected, you need to pass ***the right type of object(s)*** to the
+***appropriate function***.
+
+<br>
+
+::: {#fig-functioncall}
+
+![](assets/function_call.png){width=85%}
+
+A general approach to calling functions to promote correctness.
+
+:::
+
+## Errors & Warnings
+
+Given your specific goal, when you execute an R expression, there are a few possible outcomes:
+
+### No warning or error
+
+1. The code executes & produces correct output without issuing a warning (best case scenario).
+2. The code executes BUT produces incorrect output without issuing a warning: Fix code to produce correct output (worst case scenario).
+
+### Warning
+
+3. The code executes & produces correct output but issues a warning: Fix code to avoid warning.
+4. The code executes & produces incorrect output & issues a warning: Fix code to produce correct output & avoid warning.
+
+### Error
+
+5. The code stops execution & produces an error: Fix code to avoid error.
+
+
+::: {#fig-functioncall}
+
+![](assets/errors_warnings.webp){width=85%}
+
+You should always aim for "Success" - 
+Notice how close the best and worst case scenarios are.
+
+:::
+
+## Getting help
+
+If you have an issue that you can't resolve by reading the documentation or searching online, before
+asking for help, make sure you collect all the relevant information. This includes:
+
+- The code you are running.
+- The error message you are getting.
+- The output you are expecting.
+- The output you are getting.
+- The version of R you are using.
+- The version of any packages you are using.
+- The operating system you are using.
+- Any other relevant information.
+- A [minimal reproducible example (MRE) or minimal working example (MWE)](https://en.wikipedia.org/wiki/Minimal_working_example).
+
+A very useful R command to collect information on your R session is `sessionInfo()`:
+
+```{r}
+sessionInfo()
+```
+
+It is recommended to include the output of `sessionInfo()` when asking for help - it is often 
+expected.
+ 
+Stack Overflow provides [guidelines on how to create an MRE](https://stackoverflow.com/help/minimal-reproducible-example).
+
+[Stack Overflow](https://stackoverflow.com/) is a massively popular [Q&A site for programmers](https://en.wikipedia.org/wiki/Stack_Overflow), part of the wider 
+[Stack Exchange network](https://stackexchange.com/). Many R-related web searches will bring up 
+posts in Stack Overflow. You can view [all questions tagged with "r"](https://stackoverflow.com/questions/tagged/r). 
